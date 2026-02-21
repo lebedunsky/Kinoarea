@@ -54,7 +54,7 @@ export const StyledAIChatContainer = styled.div<{ $isShown: boolean; $isOpenChat
 
   ${mapDeviceToMedia.mobileOnly} {
     bottom: 5%;
-    right: ${(props) => (props.$isOpenChat ? "10" : props.$isShown ? "-50" : "-75")}%;
+    right: ${(props) => (props.$isOpenChat ? "10" : props.$isShown ? "-55" : "-80")}%;
   }
 `;
 
@@ -250,6 +250,11 @@ export const StyledBotTyping = styled.div`
   padding: 15px;
   border-radius: 15px;
   width: 70px;
+
+  ${mapDeviceToMedia.mobileOnly} {
+    padding: 10px 0;
+    width: 45px;
+  }
 `;
 
 export const StyledBotTypingDote = styled.span`
@@ -266,5 +271,10 @@ export const StyledBotTypingDote = styled.span`
 
   &:nth-child(3) {
     animation-delay: 0.4s;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    width: 5px;
+    height: 5px;
   }
 `;
