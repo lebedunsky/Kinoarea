@@ -24,4 +24,7 @@ export const icons = {
   alert: "alert",
   poster: "poster",
   filters: "filters",
+  chat: "chat",
+  robot: "robot",
+  sendMessage: "sendMessage",
 };

@@ -9,7 +9,7 @@ import type {
   PopularActorsResponseType,
 } from "../types";
 
-export const actorsService = Object.freeze({
+export const actorsService = {
   movieActorsFetch: async (payload: PayloadType): Promise<ActorsMovieResponseType> => {
     try {
       const { id } = payload;
@@ -77,4 +77,4 @@ export const actorsService = Object.freeze({
       return { error, data: null };
     }
   },
-});
+};

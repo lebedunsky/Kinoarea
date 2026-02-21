@@ -15,7 +15,7 @@ import type {
   VideoResponseType,
 } from "../types";
 
-export const movieService = Object.freeze({
+export const movieService = {
   moviesNowPlayingFetch: async (payload: PayloadType): Promise<MoviesResponseType> => {
     try {
       const { page } = payload;
@@ -221,4 +221,4 @@ export const movieService = Object.freeze({
       return { error, data: null };
     }
   },
-});
+};

@@ -1,3 +1,4 @@
+import { AIChat } from "@/features/AIChat";
 import { SliderWithNewTrailer } from "@/features/SliderWithNewTrailer";
 import ErrorBoundary from "@/shared/ui/ErrorBoundaryUI/ErrorBoundaryUI";
 import { Header } from "@/widgets/Header";
@@ -30,6 +31,8 @@ const MainPage = () => {
       <ErrorBoundary>
         <MailingList />
       </ErrorBoundary>
+
+      <AIChat />
     </>
   );
 };

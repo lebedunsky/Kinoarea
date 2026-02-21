@@ -2,7 +2,7 @@ import { database, get, ref } from "@/shared/config/firebase";
 
 import type { UserPayloadType, UserResponseType } from "../types";
 
-export const userService = Object.freeze({
+export const userService = {
   userFetch: async (payload: UserPayloadType): Promise<UserResponseType> => {
     try {
       const { uid } = payload;
@@ -15,4 +15,4 @@ export const userService = Object.freeze({
       return { error, data: null };
     }
   },
-});
+};
