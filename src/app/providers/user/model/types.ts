@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import type { UserMoviesType } from "@/entities/server/types/types";
+
 export type UserContextPropsType = {
   children: ReactNode;
 };
@@ -11,6 +13,7 @@ export type UserType = {
   lastName?: string;
   userName?: string;
   avatar?: string;
+  savedMovies?: UserMoviesType[];
 };
 
 export type UserContextType = {

@@ -3,7 +3,7 @@ import { axiosInstance } from "@/shared/api/axiosInstance";
 import { API_KEY } from "../const";
 import type { PayloadType, SearchResponseType } from "../types";
 
-export const searchService = Object.freeze({
+export const searchService = {
   searchMulti: async (payload: PayloadType): Promise<SearchResponseType> => {
     try {
       const { query } = payload;
@@ -22,4 +22,4 @@ export const searchService = Object.freeze({
       return { error, data: null };
     }
   },
-});
+};

@@ -4,6 +4,7 @@ import { AngleBracket } from "./icons/AngleBracket";
 import { Arrow } from "./icons/Arrow";
 import { AvatarMale } from "./icons/AvatarMale";
 import { Camera } from "./icons/Camera";
+import { Chat } from "./icons/Chat";
 import { Check } from "./icons/Check";
 import { CollapseIconUI } from "./icons/CollapseIcon";
 import { Dagger } from "./icons/Dagger";
@@ -21,7 +22,9 @@ import { NextArrow } from "./icons/NextArrow";
 import { Play } from "./icons/Play";
 import { Poster } from "./icons/Poster";
 import { PrevArrow } from "./icons/PrevArrow";
+import { Robot } from "./icons/Robot";
 import { SearchIcon } from "./icons/Search";
+import { SendMessage } from "./icons/SendMessage";
 import { Twitter } from "./icons/Twitter";
 import { YouTube } from "./icons/YouTube";
 import type { SvgIconPropsType } from "./types";
@@ -53,6 +56,9 @@ export const SvgIcon = ({ icon, className, onClick, color }: SvgIconPropsType) =
     [icons.alert]: Alert,
     [icons.poster]: Poster,
     [icons.filters]: Filters,
+    [icons.chat]: Chat,
+    [icons.robot]: Robot,
+    [icons.sendMessage]: SendMessage,
   };
 
   const IconJSX = svgs[icon];
