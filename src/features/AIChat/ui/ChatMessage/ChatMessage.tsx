@@ -12,7 +12,11 @@ export const ChatMessage = ({ isUser, avatar, message }: ChatMessagePropsType) =
   return (
     <StyledMessage>
       {isUser ? (
-        <StyledUserImage src={avatar} alt="user avatar" />
+        avatar ? (
+          <StyledUserImage src={avatar} alt="user avatar" />
+        ) : (
+          <SvgIcon icon={icons.avatarMale} />
+        )
       ) : (
         <StyledBotImage>
           <SvgIcon icon={icons.robot} />
