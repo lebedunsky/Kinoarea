@@ -1,4 +1,4 @@
-import { useEffect, useState, type ChangeEvent, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type KeyboardEvent } from "react";
 
 import { useUser } from "@/app/providers/user";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
@@ -25,6 +25,8 @@ export const AIChat = () => {
   const [isShown, setIsShown] = useState(false);
   const [userMessage, setUserMessage] = useState("");
 
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
+
   const { user } = useUser();
 
   const { sendMessage, isTyping, messages } = useAIChat();
@@ -38,9 +40,16 @@ export const AIChat = () => {
     return () => document.removeEventListener("scroll", handler);
   }, []);
 
+  useEffect(() => {
+    messagesContainerRef?.current?.scrollTo({
+      behavior: "smooth",
+      top: messagesContainerRef.current?.scrollHeight,
+    });
+  }, [messages]);
+
   const handleSend = async () => {
-    await sendMessage(userMessage, user?.savedMovies);
     setUserMessage("");
+    await sendMessage(userMessage, user?.savedMovies);
   };
 
   const handleCloseChat = () => {
@@ -52,7 +61,7 @@ export const AIChat = () => {
   };
 
   const handleKeyDown = async (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && userMessage.trim()) {
+    if (e.key === "Enter" && userMessage.trim() && !isTyping) {
       await handleSend();
     }
   };
@@ -69,7 +78,7 @@ export const AIChat = () => {
             <StyledTitle>AI асистент</StyledTitle>
             <SvgIcon icon={icons.dagger} onClick={handleCloseChat} />
           </StyledChatHeader>
-          <StyledMessageContainer>
+          <StyledMessageContainer ref={messagesContainerRef}>
             {messages.map((message) => {
               return (
                 <ChatMessage key={message.id} message={message.message} isUser={message.isUser} avatar={user?.avatar} />
@@ -90,7 +99,7 @@ export const AIChat = () => {
               onChange={handleChangeText}
               onKeyDown={handleKeyDown}
             />
-            <StyledSendButton onClick={handleSend}>
+            <StyledSendButton $disabled={isTyping} disabled={isTyping} onClick={handleSend}>
               <SvgIcon icon={icons.sendMessage} />
             </StyledSendButton>
           </StyledFooter>

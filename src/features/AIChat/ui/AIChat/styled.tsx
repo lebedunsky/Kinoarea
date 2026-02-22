@@ -173,7 +173,7 @@ export const StyledFooter = styled.div`
   }
 `;
 
-export const StyledSendButton = styled.button`
+export const StyledSendButton = styled.button<{ $disabled: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,6 +184,11 @@ export const StyledSendButton = styled.button`
   border-radius: 100%;
   padding: 10px;
   cursor: pointer;
+  opacity: ${(props) => (props.$disabled ? 0.5 : 1)};
+
+  &:hover {
+    cursor: ${(props) => (props.$disabled ? "not-allowed" : "pointer")};
+  }
 
   ${mapDeviceToMedia.laptopOnly} {
     width: 35px;
